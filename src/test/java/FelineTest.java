@@ -1,16 +1,18 @@
 import com.example.Feline;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FelineTest {
 
     List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
     Feline feline;
-    @Before
+
+    @BeforeEach
     public void setUp() {
         feline = new Feline();
     }
@@ -32,13 +34,14 @@ public class FelineTest {
         int expectedResult = 3;
         assertEquals(expectedResult, feline.getKittens(3));
     }
+
     @Test
     public void testEatMeatException() throws Exception {
         feline = new Feline();
         List<String> actual = feline.eatMeat();
         assertEquals(expectedFood, actual);
-        }
     }
+}
 
 
 

@@ -1,17 +1,18 @@
 import com.example.Cat;
 import com.example.Feline;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.Test;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class CatTest {
 
     List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
@@ -20,9 +21,8 @@ public class CatTest {
     @Mock
     Feline feline;
 
-    @Before
+    @BeforeEach
     public void setup() {
-
         cat = new Cat(feline);
     }
 
